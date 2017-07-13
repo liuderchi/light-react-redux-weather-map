@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { compose, lifecycle } from 'recompose';
 
 const BaseComponent = () => <div ref="map" />
