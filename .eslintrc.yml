@@ -3,6 +3,8 @@ env:
   commonjs: true
   es6: true
   node: true
+globals:
+  google: true
 extends:
   - 'eslint:recommended'
   - 'plugin:react/recommended'
@@ -14,6 +16,16 @@ parserOptions:
 plugins:
   - react
 rules:
+  react/no-find-dom-node: 0
+  react/no-deprecated: 0
+  react/no-string-refs: 0
+  react/prop-types: 0
+  comma-dangle:
+    - error
+    -
+      arrays: always-multiline
+      objects: always-multiline
+      functions: ignore
   indent:
     - error
     - 2

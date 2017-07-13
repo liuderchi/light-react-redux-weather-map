@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { PropTypes } from 'react'
-import { Sparklines, SparklinesLine, SparklinesReferenceLine, SparklinesCurve } from 'react-sparklines'
+import { Sparklines, SparklinesReferenceLine, SparklinesCurve } from 'react-sparklines'
 import { compose, pure, defaultProps, setPropTypes } from 'recompose'
 
 function average(data) {
@@ -12,9 +12,9 @@ const enhance = compose(
   defaultProps({
     height: 120,
     width: 180,
-    color: "green",
-    type: "avg",
-    units: "",
+    color: 'green',
+    type: 'avg',
+    units: '',
   }),
   setPropTypes({
     height: PropTypes.number,

@@ -25,7 +25,7 @@ const enhance = compose(
   })
 )
 
-const SearchBar = ({ term, onInputChange, fetchWeather, onFormSubmit }) => (
+const SearchBar = ({ term, onInputChange, onFormSubmit }) => (
   <form onSubmit={onFormSubmit} className="input-group">
     <input
       placeholder="get a 5-day forecast in your city"
