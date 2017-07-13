@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import CityWeather from '../components/city_weather';
-import { compose, pure, setPropTypes } from 'recompose';
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import CityWeather from '../components/city_weather'
+import { compose, pure, setPropTypes } from 'recompose'
 
 const renderCityWeather = (cityWeather) => (
   <CityWeather key={cityWeather.city.name} cityWeather={cityWeather}/>
@@ -30,7 +30,7 @@ const WeatherList = ({ weather }) => (
 
 
 function mapStateToProps({ weather }) {
-  return { weather };   // { weather } === { weather: weather }
+  return { weather }   // { weather } === { weather: weather }
 }
 
-export default connect(mapStateToProps)(enhance(WeatherList));
+export default connect(mapStateToProps)(enhance(WeatherList))

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import SearchBar from '../containers/search_bar.js';
-import WeatherList from '../containers/weather_list.js';
+import React, { Component } from 'react'
+import SearchBar from '../containers/search_bar.js'
+import WeatherList from '../containers/weather_list.js'
 
 export default () => {
   return (
@@ -9,5 +9,5 @@ export default () => {
       <SearchBar />
       <WeatherList />
     </div>
-  );
+  )
 }

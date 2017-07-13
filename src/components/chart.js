@@ -1,10 +1,10 @@
-import _ from 'lodash';
-import React, { PropTypes } from 'react';
-import { Sparklines, SparklinesLine, SparklinesReferenceLine, SparklinesCurve } from 'react-sparklines';
+import _ from 'lodash'
+import React, { PropTypes } from 'react'
+import { Sparklines, SparklinesLine, SparklinesReferenceLine, SparklinesCurve } from 'react-sparklines'
 import { compose, pure, defaultProps, setPropTypes } from 'recompose'
 
 function average(data) {
-  return _.round(_.sum(data) / data.length);
+  return _.round(_.sum(data) / data.length)
 }
 
 const enhance = compose(
@@ -36,6 +36,6 @@ const Chart = ({ height, width, data, color, type, units }) => (
     </Sparklines>
     <div>{average(data)} {units}</div>
   </div>
-);
+)
 
 export default enhance(Chart)

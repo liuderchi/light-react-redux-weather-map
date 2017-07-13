@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchWeather } from '../actions/index'
-import { compose, pure, withState, withHandlers, setPropTypes } from 'recompose';
+import { compose, pure, withState, withHandlers, setPropTypes } from 'recompose'
 
 const enhance = compose(
   pure,
@@ -41,8 +41,8 @@ const SearchBar = ({ term, onInputChange, fetchWeather, onFormSubmit }) => (
 )
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather }, dispatch);
+  return bindActionCreators({ fetchWeather }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(enhance(SearchBar));
+export default connect(null, mapDispatchToProps)(enhance(SearchBar))
 // NOTE first null means that omit first argument (mapStateToProps)
