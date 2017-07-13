@@ -1,24 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Chart from '../components/chart';
-import GoogleMap from '../components/google_map';
+import CityWeather from '../components/city_weather';
 import { compose, pure, setPropTypes } from 'recompose';
 
-const renderWeather = (cityData) => {    // render weather for each city
-  const { name, coord: { lat, lon } } = cityData.city;
-  const temps = cityData.list.map(weather => weather.main.temp);
-  const pressures = cityData.list.map(weather => weather.main.pressure);
-  const humidities = cityData.list.map(weather => weather.main.humidity);
-
-  return (
-    <tr key={name}>
-      <td><GoogleMap lat={lat} lon={lon} /></td>
-      <td><Chart data={temps} units="K" color="green"/></td>
-      <td><Chart data={pressures} units="hPa" color="blue"/></td>
-      <td><Chart data={humidities} units="%" color="brown"/></td>
-    </tr>
-  )
-}
+const renderCityWeather = (cityWeather) => (
+  <CityWeather key={cityWeather.city.name} cityWeather={cityWeather}/>
+)
 
 const enhance = compose(
   pure,
@@ -36,7 +23,7 @@ const WeatherList = ({ weather }) => (
       </tr>
     </thead>
     <tbody>
-      {weather.map(renderWeather)}
+      {weather.map(renderCityWeather)}
     </tbody>
   </table>
 )
