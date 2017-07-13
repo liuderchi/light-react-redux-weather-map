@@ -1,11 +1,12 @@
 import React from 'react';
-import { compose, lifecycle } from 'recompose';
+import { compose, pure, lifecycle } from 'recompose';
 
 const BaseComponent = () => <div ref="map" />
 
 const GoogleMap = compose(
+  pure,
   lifecycle({
-    componentDidMount: function() {    // called right after component mounted
+    componentDidMount() {
       const position = {
         lat: this.props.lat,
         lng: this.props.lon
@@ -15,10 +16,7 @@ const GoogleMap = compose(
         center: position
       });
 
-      new google.maps.Marker({
-        position: position,
-        map: map
-      });
+      new google.maps.Marker({ position, map });
     }
   }),
 )(BaseComponent)
