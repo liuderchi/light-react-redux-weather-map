@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
+import { compose, lifecycle } from 'recompose';
 
-class GoogleMap extends Component {
-  componentDidMount() {    // called right after component mounted
-    const position = {
-      lat: this.props.lat,
-      lng: this.props.lon
+const BaseComponent = () => <div ref="map" />
+
+const GoogleMap = compose(
+  lifecycle({
+    componentDidMount: function() {    // called right after component mounted
+      const position = {
+        lat: this.props.lat,
+        lng: this.props.lon
+      }
+      const map = new google.maps.Map(this.refs.map, {
+        zoom: 12,   // map zoom level
+        center: position
+      });
+
+      new google.maps.Marker({
+        position: position,
+        map: map
+      });
     }
-    const map = new google.maps.Map(this.refs.map, {
-      zoom: 12,   // map zoom level
-      center: position
-    });
-
-    new google.maps.Marker({
-      position: position,
-      map: map
-    });
-  }
-
-  render() {
-    return (
-      <div ref="map" />
-    );
-  }
-}
+  }),
+)(BaseComponent)
 
 export default GoogleMap
